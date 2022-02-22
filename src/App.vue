@@ -1,26 +1,29 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+<!--  <div>-->
+<!--    {{this.$store.state.title}} <br>-->
+<!--    {{this.$store.getters.getTitle}} <br>-->
+<!--    <button @click="changeTitle">Change Title</button>-->
+<!--  </div>-->
+  <div>
+    <ComponentA></ComponentA>
+    <ComponentB></ComponentB>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import ComponentA from "@/components/ComponentA";
+import ComponentB from "@/components/ComponentB";
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  methods:{
+    changeTitle(){
+      //this.$store.commit('setTitle', 'new Title')
+      this.$store.dispatch('setTitleActions', 'big title')
+    }
+  },
+  components:{
+    ComponentA,
+    ComponentB
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
